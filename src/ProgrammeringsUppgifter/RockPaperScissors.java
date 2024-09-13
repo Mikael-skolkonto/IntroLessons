@@ -11,6 +11,7 @@ public class RockPaperScissors {
         Random randNumGenerator = new Random();
         Scanner scanner = new Scanner(System.in);
 
+        // 0, 1, or 2
         int bot_decision = randNumGenerator.nextInt(3);
 
         System.out.print("Select rock (1), paper (2) or scissors (3): ");
@@ -30,10 +31,16 @@ public class RockPaperScissors {
             System.out.println("I picked rock.");
         }
 
+        System.out.println(getWinnerMessage(bot_decision, user_decision));
+    }
+    private String getWinnerMessage(int bot_decision, int user_decision)
+    {
+        String answer = "error incorrect value";
         switch (bot_decision - user_decision) {
-            case -2, 1 -> System.out.println("You lost!");
-            case -1, 2 -> System.out.println("I lost!");
-            case 0 -> System.out.println("It's a draw!");
+            case -2, 1 -> answer = "You lost!";
+            case -1, 2 -> answer = "I lost!";
+            case 0 -> answer =  "It's a draw!";
         }
+        return answer;
     }
 }
