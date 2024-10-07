@@ -33,8 +33,7 @@ public class RockPaperScissors {
 
         System.out.println(getWinnerMessage(bot_decision, user_decision));
     }
-    private String getWinnerMessage(int bot_decision, int user_decision)
-    {
+    private String getWinnerMessage(int bot_decision, int user_decision) {
         String answer = "error incorrect value";
         switch (bot_decision - user_decision) {
             case -2, 1 -> answer = "You lost!";
