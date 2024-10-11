@@ -1,8 +1,7 @@
-import ProgrammeringsUppgifter.ProjectEuler.Problem45;
-import ProgrammeringsUppgifter.RockPaperScissors;
+import ProgrammeringsUppgifter.KastaDice;
 
 public class Main {
     public static void main(String[] args) {
-        new Problem45();
+        new KastaDice();
     }
 }
