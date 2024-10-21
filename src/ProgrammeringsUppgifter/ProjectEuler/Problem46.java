@@ -21,13 +21,15 @@ public class Problem46 {
                 //Ifall inget primtal hittades efter att ha testat alla dubbla kvadrattal mindre än sammansattaTalet
                 if (differens < 0) {
                     System.out.println("Första sammansatta talet som motbevisar Goldbachs förmodan är: " + sammansattaTalet);
+                    System.out.println(primtalsLista.size() + " primtal hittade:" + primtalsLista.toString());
                     return;
                 }
                 kvadratTalDifferens += 2;
             }
             //while-slinga avbryter när differensen är ett primtal,
             //eller så körs den inte om "sammansattaTalet" råkar vara ett primtal
-
+            kvadratTalDifferens -= 2;
+            System.out.println("Sammansatt tal och dess kvadrattals ordinal:" + Integer.toString(sammansattaTalet) + ' ' + Integer.toString((kvadratTalDifferens+1)>>1));
 
         }
     }
