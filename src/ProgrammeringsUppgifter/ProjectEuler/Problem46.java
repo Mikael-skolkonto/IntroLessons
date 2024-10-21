@@ -6,17 +6,17 @@ import java.util.ArrayList;
  */
 public class Problem46 {
 
-    private ArrayList<Long> primtalsLista = new ArrayList<>(100);
+    private ArrayList<Integer> primtalsLista = new ArrayList<>(100);
 
     public Problem46() {
 
-        for (long sammansattaTalet = 3; sammansattaTalet < Long.MAX_VALUE; sammansattaTalet+=2) {
+        for (int sammansattaTalet = 3; sammansattaTalet < Integer.MAX_VALUE; sammansattaTalet+=2) {
 
-            long differens = sammansattaTalet;
-            long kvadratTalDifferens = 1;
+            int differens = sammansattaTalet;
+            int kvadratTalDifferens = 1;
 
             while (!isPrime(differens)) {
-                differens -= 2L * kvadratTalDifferens;
+                differens -= 2 * kvadratTalDifferens;
 
                 //Ifall inget primtal hittades efter att ha testat alla dubbla kvadrattal mindre än sammansattaTalet
                 if (differens < 0) {
@@ -32,8 +32,11 @@ public class Problem46 {
         }
     }
 
-    private boolean isPrime(long p) {
-        for (long primtal : primtalsLista) {
+    private boolean isPrime(int p) {
+        for (int primtal : primtalsLista) {
+            if (p == primtal) {
+                return true;
+            }
             if (p % primtal == 0) {
                 return false;
             }
