@@ -1,7 +1,7 @@
-import ProgrammeringsUppgifter.ProjectEuler.Problem46;
+import ProgrammeringsUppgifter.AdventOfCode.Day3;
 
 public class Main {
     public static void main(String[] args) {
-        new Problem46();
+        Day3.sumSomeMultiplications();
     }
 }
