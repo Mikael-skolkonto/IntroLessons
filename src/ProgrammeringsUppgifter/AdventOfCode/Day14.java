@@ -33,12 +33,29 @@ public class Day14 {
                     ,Integer.parseInt(matcher.group("vy"))});
         }
         Stream<int[]> botData = streamBuilder.build();
-        // TODO: 2025-04-28 VARFÖR GER DEN RESULTATET safetyFactor = 1 ??
+
+        // TODO: 2025-04-28 VARFÖR ÄR RESULTATET "Safety factor: 97941888" FÖR LÅGT??
+
         //Converts stream of coordinates and velocities (botData) to stream of quadrants' added safetyFactor
         int[][] quadrants = botData.map(Day14::stepHundredSec).toArray(int[][]::new);
-        int safetyFactor = Arrays.stream(quadrants[0]).sum() * Arrays.stream(quadrants[1]).sum()
-                * Arrays.stream(quadrants[2]).sum() * Arrays.stream(quadrants[3]).sum();
+
+        int safetyFactor = quadrantSum(quadrants,0) * quadrantSum(quadrants,1)
+                * quadrantSum(quadrants,2) * quadrantSum(quadrants,3);
         System.out.println("Safety factor: " + safetyFactor);
+    }
+
+    /**
+     * Sums the bots in the given quadrant
+     * @param quadrants The table of bot positions, each array containing all zeroes except for a 1 for the quadrant it's in.
+     * @param quadrantOrdinal The index that should be summed across all arrays contained in the table.
+     * @return The sum of all entries with the second index given.
+     */
+    private static int quadrantSum(int[][] quadrants, int quadrantOrdinal) {
+        int sum = 0;
+        for (int i = 0; i < quadrants.length; i++) {
+            sum += quadrants[i][quadrantOrdinal];
+        }
+        return sum;
     }
 
     /**One hundred time steps in unit seconds
