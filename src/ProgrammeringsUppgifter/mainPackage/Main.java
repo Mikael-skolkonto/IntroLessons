@@ -1,9 +1,9 @@
 package ProgrammeringsUppgifter.mainPackage;
 
-import ProgrammeringsUppgifter.AdventOfCode.Day3;
+import ProgrammeringsUppgifter.AdventOfCode.Day14;
 
 public class Main {
     public static void main(String[] args) {
-        Day3.sumSomeMultiplications();
+        Day14.robotSafetyFactor();
     }
 }
