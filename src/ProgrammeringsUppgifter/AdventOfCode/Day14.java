@@ -90,6 +90,7 @@ public class Day14 {
 
     /**
      * Returns the time when the bots (presumably) forms a picture of a Christmas tree.
+     * This will be done by checking for 10 consecutive non-empty tiles.
      */
     public static void robotTree() {
 
