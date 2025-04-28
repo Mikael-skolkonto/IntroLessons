@@ -35,7 +35,6 @@ public class Day14 {
         Stream<int[]> botData = streamBuilder.build();
 
         // TODO: 2025-04-28 VARFÖR ÄR RESULTATET "Safety factor: 97941888" FÖR LÅGT??
-
         //Converts stream of coordinates and velocities (botData) to stream of quadrants' added safetyFactor
         int[][] quadrants = botData.map(Day14::stepHundredSec).toArray(int[][]::new);
 
@@ -66,6 +65,11 @@ public class Day14 {
         botData[0] = (botData[0] - botData[2]) % 101;
         botData[1] = (botData[1] - (botData[3] << 1) - botData[3]) % 103;
 
+        if (botData[0] < 0)
+            botData[0] += 101;
+        if (botData[1] < 0)
+            botData[1] += 103;
+
         if (botData[0] == 50 || botData[1] == 51) {
             //in between quadrants
             botData[0] = botData[1] = botData[2] = botData[3] = 0;
@@ -82,6 +86,13 @@ public class Day14 {
         botData[0] = botData[1] = botData[2] = botData[3] = 0;
         botData[quadrant] = 1;
         return botData;
+    }
+
+    /**
+     * Returns the time when the bots (presumably) forms a picture of a Christmas tree.
+     */
+    public static void robotTree() {
+
     }
 
     private static Scanner day14Scanner() {
