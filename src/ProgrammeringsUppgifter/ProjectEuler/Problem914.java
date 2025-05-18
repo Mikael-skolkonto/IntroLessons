@@ -9,14 +9,16 @@ public class Problem914 {
     private final Scanner scanner = new Scanner(System.in);
 
     public Problem914() {
-        long a = 1; // Fibonacci(1)
-        long b = 1; // Fibonacci(2)
+        long U = 2;
+        long V = 1;
+        // Om U och V är relativt prima, sådant att U > V och U + V = 1 (mod 2)
+        // Så bildar sidor av längder U*U-V*V och 2*U*V och U*U+V*V en primitiv pythagoreisk trippel
+        // Med incirkeln av radien (U-V)*V
 
-        for (long i = 0; i < 50; i++) {
-            a += b;
-            b += a;
-        }
-        System.out.println("100th fibonacci number: " + b);
+        // OH BABY A TRIPLE!
+
+        // Enligt randvinkelsatsen så ligger räta vinkeln av triangeln på cirkumcirkelns rand,
+        // alltså krävs det bara att hypotenusan är kortare än diametern 2*R.
     }
 
     /**

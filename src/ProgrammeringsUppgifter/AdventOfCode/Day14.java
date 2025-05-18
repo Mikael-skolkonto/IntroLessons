@@ -2,11 +2,11 @@ package ProgrammeringsUppgifter.AdventOfCode;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Arrays;
 import java.util.Scanner;
 import java.util.regex.Pattern;
 import java.util.stream.Stream;
 
+//Liten anledning till varför jag valde att försöka mig på just detta problemet: Det är min födelsedag
 /**
  * Problem statement: <a href="https://adventofcode.com/2024/day/14">Day 14 AoC 2024</a>
  */
@@ -16,8 +16,7 @@ public class Day14 {
         Scanner sc = day14Scanner();
 
         Pattern botDataFormat = Pattern.compile("p=(?<x>-?\\d+),(?<y>-?\\d+) v=(?<vx>-?\\d+),(?<vy>-?\\d+)");
-
-        //x y vx vy
+        //Indexes ordered as follows: [0]=x  [1]=y  [2]=vx  [3]=vy
         Stream.Builder<int[]> streamBuilder = Stream.builder();
         while (sc.hasNextLine()) {
             String str = sc.nextLine();
@@ -69,6 +68,7 @@ public class Day14 {
             botData[0] += 101;
         if (botData[1] < 0)
             botData[1] += 103;
+
 
         if (botData[0] == 50 || botData[1] == 51) {
             //in between quadrants
